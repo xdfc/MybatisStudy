@@ -28,4 +28,9 @@ public class User {
     public int getPwd() {
         return pwd;
     }
+
+    @Override
+    public String toString() {
+        return "[id="+id+",name="+name+",pwd="+pwd+"]";
+    }
 }
