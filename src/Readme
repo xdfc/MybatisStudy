@@ -5,3 +5,4 @@ Maven的形式
 项目代码同步到GitHub仓库
 
 Mybatis_hello:成功实现Mybatis框架
+Mybatis_crud:实现对数据库的CRUD
