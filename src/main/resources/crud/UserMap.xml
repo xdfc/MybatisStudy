@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace命名空间防止sql语句的id重名-->
+<!--namespace命名：包名+类名/包名+mapper文件名-->
+<!--parameterType 指sql语句的参数类型-->
+<!--resultType 返回结果类型-->
 <mapper namespace="UserMap">
+<!--id唯一-->
     <select id="selectUser" resultType="Mybatis_crud.entity.User">
         select * from user where id = #{id}
     </select>

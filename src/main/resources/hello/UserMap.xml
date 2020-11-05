@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace命名空间防止sql语句的id重名-->
+<!--namespace命名：包名+类名/包名+mapper文件名-->
 <mapper namespace="UserMap">
-    <select id="selectUser" resultType="Mybatis_hello.entity.User">
+    <select id="selectUser" resultType="User">
         select * from user where id = #{id}
     </select>
 </mapper>
