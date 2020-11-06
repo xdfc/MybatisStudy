@@ -2,35 +2,44 @@ package Mybatis_hello.entity;
 
 public class User {
     private int id;
-    private String name;
-    private int pwd;
+    private String mingzi;
+    private int password;
 
-    public void setName(String name) {
+/*    public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setPwd(int pwd) {
-        this.pwd = pwd;
-    }
-
-    public String getName() {
+/*    public String getName() {
         return name;
-    }
+    }*/
 
     public int getId() {
         return id;
     }
 
-    public int getPwd() {
-        return pwd;
-    }
 
     @Override
     public String toString() {
-        return "[id="+id+",name="+name+",pwd="+pwd+"]";
+        return "[id="+id+",name="+mingzi+",pwd="+password+"]";
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
+
+    public String getMingzi() {
+        return mingzi;
+    }
+
+    public void setMingzi(String mingzi) {
+        this.mingzi = mingzi;
     }
 }

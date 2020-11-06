@@ -9,7 +9,7 @@ public class Test {
     public static void main(String[] args) throws IOException {
         SqlSession sqlSession = MybatisUtil.getSession();
         User user = sqlSession.selectOne("UserMap.selectUser",1);
-        System.out.println("id= "+user.getId()+",name="+user.getName()+",pwd="+user.getPwd());
+        System.out.println("id= "+user.getId()+",name="+user.getMingzi()+",pwd="+user.getPassword());
         sqlSession.close();
     }
 }

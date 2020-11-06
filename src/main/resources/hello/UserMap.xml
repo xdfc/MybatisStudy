@@ -4,7 +4,16 @@
 <!--namespace命名空间防止sql语句的id重名-->
 <!--namespace命名：包名+类名/包名+mapper文件名-->
 <mapper namespace="UserMap">
-    <select id="selectUser" resultType="User">
-        select * from user where id = #{id}
+<!--    <select id="selectUser" resultType="User">
+        select id,name mingzi,pwd password from user where id = #{id}
+    </select>-->
+    <select id="selectUser" resultMap="usermap">
+        select id,name,pwd from user where id = #{id}
     </select>
+    <resultMap id="usermap" type="User">
+        <id column="id" property="id"/>
+        <!--column是数据库表中的列名 property是实体类的属性名-->
+        <result column="name" property="mingzi"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
 </mapper>
