@@ -10,7 +10,12 @@
     <select id="selectUser" resultType="Mybatis_crud.entity.User">
         select * from user where id = #{id}
     </select>
-    <select id="selectAll" resultType="Mybatis_crud.entity.User">
+    <!--方法一通过map实现分页-->
+    <select id="selectAll" parameterType="Map" resultType="Mybatis_crud.entity.User">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
+    <!--方法二实现分页-->
+    <select id="getAll" resultType="Mybatis_crud.entity.User">
         select * from user
     </select>
     <!--useGeneratedKeys的意思：是否使用自增主键-->

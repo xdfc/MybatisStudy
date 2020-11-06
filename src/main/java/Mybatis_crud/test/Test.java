@@ -12,7 +12,7 @@ public class Test {
         UserDao userDao = new UserDao();
 //        System.out.println(userDao.getById(4).toString());
         //查询所有
-        List<User> userList = userDao.getAll();
+        List<User> userList = userDao.getAll(2,2);
         for(User u:userList){
             System.out.println(u);
         }
