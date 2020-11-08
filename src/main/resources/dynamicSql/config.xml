@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    用于指定使用哪个环境     default: 用于指定使用的环境id  -->
+    <environments default="dev">
+        <!--     用于配置开发环境     id: 环境的唯一识别码    -->
+        <environment id="dev">
+            <!--      事务管理器  type: 用于设置mybatis采用什么方式管理事务      JDBC表示采用和JDBC一样的事务管理方式    -->
+            <transactionManager type="JDBC">
+            </transactionManager>
+            <!--      数据源/连接池, 用于配置连接池和数据库连接的参数     type: 用于设置mybatis是否采用连接池技术      POOLED表示MyBatis采用连接池技术     -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/fc_test?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="dynamicSql/UserMap.xml"/>
+    </mappers>
+</configuration>
