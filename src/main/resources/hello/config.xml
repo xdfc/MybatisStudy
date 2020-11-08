@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="hello/db.properties"/>
+    <properties resource="db.properties"/>
     <!--    用于指定使用哪个环境     default: 用于指定使用的环境id
     enviroments指Mybatis可以配置多个环境，default指向默认的环境
     每个SqlSessionFactory对应一个环境environments-->

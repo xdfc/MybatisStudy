@@ -25,6 +25,7 @@
         select * from student
     </select>
     <resultMap id="studentTeacher" type="Student">
+        <!--association关联属性 property属性名 javaType属性的类型 column关联属性对应数据库的列名-->
         <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
     </resultMap>
     <!--这个也可以写在另外一个xml文件中-->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mybatis_onetomay.entity.teacher.mapper">
+    <!--一对多查询，就是一个里面查询多个结果出来-->
+    <!--方法1-->
+<!--        <select id="getTeacher" resultMap="teacherStudent">
+            select s.id sid,s.name sname,s.tid stid, t.tid,t.name tname from student s,teacher t where s.tid = t.tid and t.tid = #{tid}
+        </select>
+        <resultMap id="teacherStudent" type="Teacher">
+            <id column="tid" property="tid"/>
+            <result column="tname" property="name"/>
+            <collection property="studentList" ofType="Student">
+                <id column="sid" property="id"/>
+                <result column="sname" property="name"/>
+            </collection>
+        </resultMap>-->
+    <!--方法2-->
+    <select id="getTeacher" resultMap="TeacherStudent">
+        select * from teacher where tid = #{tid}
+    </select>
+    <resultMap id="TeacherStudent" type="Teacher">
+        <collection property="studentList" javaType="ArrayList" ofType="Student" column="tid" select="getStudentByID"></collection>
+    </resultMap>
+    <select id="getStudentByID" resultType="Student">
+        select * from student where tid = #{id}
+    </select>
+</mapper>
