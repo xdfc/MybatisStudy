@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="hello/db.properties"/>
+    <!--    用于指定使用哪个环境     default: 用于指定使用的环境id
+    enviroments指Mybatis可以配置多个环境，default指向默认的环境
+    每个SqlSessionFactory对应一个环境environments-->
+    <typeAliases>
+        <!--为某一个类指定一个别名，使得在mapper映射文件中可以简化应用-->
+<!--        <typeAlias type="Mybatis_hello.entity.User" alias="user"/>-->
+        <!--为某一个包下的所有类指定别名，默认别名为类名-->
+        <package name="Mybatis_annotation.entity"/>
+    </typeAliases>
+    <environments default="dev">
+        <!--     用于配置开发环境     id: 环境的唯一识别码    -->
+        <environment id="dev">
+            <!--      事务管理器  type: 用于设置mybatis采用什么方式管理事务   JDBC表示采用和JDBC一样的事务管理方式-->
+            <!--JDBC – 这个配置直接使用了 JDBC 的提交和回滚设施，它依赖从数据源获得的连接来管理事务作用域。
+                MANAGED – 这个配置几乎没做什么。它从不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如 JEE 应用服务器的上下文）。
+                           默认情况下它会关闭连接。然而一些容器并不希望连接被关闭，因此需要将 closeConnection 属性设置为 false 来阻止默认的关闭行为。-->
+            <transactionManager type="JDBC"/>
+            <!--      数据源/连接池, 用于配置连接池和数据库连接的参数   type: 用于设置mybatis是否采用连接池技术-->
+            <!--UNPOOLED– 这个数据源的实现会每次请求时打开和关闭连接。-->
+            <!--POOLED表示MyBatis采用连接池技术     -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${drive}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper class="Mybatis_annotation.dao.UserDao"/>
+    </mappers>
+</configuration>
